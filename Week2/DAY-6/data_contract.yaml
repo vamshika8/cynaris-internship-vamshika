@@ -1,0 +1,59 @@
+dataset:
+  name: north_sales
+  description: North region sales transaction data
+  file: ../../north_sales.csv
+
+owner:
+  team: Data Analytics
+  steward: Data Analyst
+
+schema:
+  - column: id
+    type: integer
+    required: true
+    unique: true
+
+  - column: product
+    type: string
+    required: true
+
+  - column: region
+    type: string
+    required: true
+
+  - column: amount
+    type: number
+    required: true
+    minimum: 0
+
+  - column: sale_date
+    type: date
+    required: true
+
+  - column: quantity
+    type: integer
+    required: true
+    minimum: 1
+
+  - column: discount
+    type: number
+    required: true
+    minimum: 0
+    maximum: 1
+
+quality_rules:
+  - id_must_be_unique
+  - required_fields_must_not_be_null
+  - amount_must_be_non_negative
+  - quantity_must_be_positive
+  - discount_must_be_between_0_and_1
+  - sale_date_must_be_valid
+
+freshness:
+  sla: daily
+  description: Validate new sales data at least once per day
+
+pii_classification:
+  classification: review_required
+  potentially_sensitive_columns: []
+  action: Review columns for personal information before sharing
