@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>North Sales Data Quality Report</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+th { background: #eee; }
+</style>
+</head>
+<body>
+<h1>North Sales Data Quality Report</h1>
+<p>Dataset: north_sales.csv</p>
+<p>Rows: 3 | Columns: 7</p>
+<p>Missing values: 0</p>
+<table>
+<tr><th>Expectation</th><th>Result</th></tr>
+<tr><td>ID should be unique</td><td>PASS</td></tr>
+<tr><td>ID should not be missing</td><td>PASS</td></tr>
+<tr><td>Product should not be missing</td><td>PASS</td></tr>
+<tr><td>Region should not be missing</td><td>PASS</td></tr>
+<tr><td>Amount should be non-negative</td><td>PASS</td></tr>
+<tr><td>Quantity should be positive</td><td>PASS</td></tr>
+<tr><td>Discount should be between 0 and 1</td><td>PASS</td></tr>
+<tr><td>Sale date should be valid</td><td>PASS</td></tr>
+</table>
+<h2>Recommendations</h2>
+<ul>
+<li>Validate incoming sales records.</li>
+<li>Reject negative amounts and invalid discounts.</li>
+<li>Validate sale dates and required fields.</li>
+<li>Monitor data freshness daily.</li>
+<li>Repeat testing on a larger dataset.</li>
+</ul>
+</body>
+</html>
